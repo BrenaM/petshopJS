@@ -45,7 +45,7 @@ const listarPets = () => {
     }
 }
 
-const vacinarPet = (animal) => {
+const vacinarPets = (animal) => {
 
     for(let pet of pets){
         if (animal === pet.nome) {
@@ -60,7 +60,23 @@ const vacinarPet = (animal) => {
     }
 }
 
-vacinarPet("Aristides");
+const campanhaVacina = () =>{
+    let petVacinados = 0
+    for(let pet of pets){
+        
+        if (pet.vacinado == false) {
+            pet.vacinado = true;
+            petVacinados++
+            console.log(`O pet ${pet.nome} foi vacinado!`)
+
+        }else {
+            console.log(`O pet ${pet.nome} já foi vacinado anteriormente!`)
+        }  
+    }
+    console.log(`${petVacinados} pets vacinados nesta campanha!`)
+}
+campanhaVacina();
+//vacinarPets("Aristides");
 //listarPets();
 
 

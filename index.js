@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 const nomePetshop = "PETSHOP AVANADE";
 
 let pets = [
@@ -10,7 +12,7 @@ let pets = [
         tutor: 'Brena',
         contato: '(81) 98529-5890',
         vacinado: true,
-        servicos: ['banho', 'hidratação', 'tosa']
+        servicos: []
     },
     {
         nome: 'Aristides',
@@ -21,7 +23,7 @@ let pets = [
         tutor: 'Suzana',
         contato: '(81) 98529-5890',
         vacinado: false,
-        servicos: ['banho', 'tosa']
+        servicos: []
     },
     {
         nome: 'Abel',
@@ -32,16 +34,21 @@ let pets = [
         tutor: 'Brena',
         contato: '(81) 98529-5890',
         vacinado: false,
-        servicos: ['banho', 'corte de unha']
+        servicos: []
     }
 ];
 
 
 //criando uma arrow function para listar os pets
 const listarPets = () => {
+  // for (let i = 0; i < pets.length; i++) {
+  // console.log(pets[i].nome);
+  // console.log(`O nome do pet é ${pets[i].nome}`);
+  // }
     for (let pet of pets){ 
         //template string
         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
+    
     }
 }
 
@@ -49,10 +56,10 @@ const vacinarPets = (animal) => {
 
     for(let pet of pets){
         if (animal === pet.nome) {
+
             if (pet.vacinado == false) {
                 pet.vacinado = true;
                 console.log(`O pet chamado ${animal} foi vacinado!`)
-                break;
             }else {
                 console.log(`O Pet ${animal} já foi vacinado!`)
             }
@@ -74,6 +81,7 @@ const campanhaVacina = () =>{
         }  
     }
     console.log(`${petVacinados} pets vacinados nesta campanha!`)
+    darBanhoPet();
 }
 
 const addCliente = (nome, tipo, idade, raca, peso, tutor, contato, vacinado, servicos) => {
@@ -91,7 +99,62 @@ const addCliente = (nome, tipo, idade, raca, peso, tutor, contato, vacinado, ser
     console.log(pets);
 }
 
-addCliente('Luke', 'cachorro', 3, 'Husk', 35, "victor", '(81) 9 5748-4059', true, [] );
+new Date()
+
+const darBanhoPet= (animal) => {
+    for(let pet of pets){
+        if (pet.nome === animal){
+            pet.servicos.push({
+                'serviço':'banho',
+                'data': moment().format('DD-MM-YYYY')
+            });
+            console.log(`${pet.nome} está de banho tomado!`);
+
+        }
+
+    }
+    
+}
+
+const tosaPet= (animal) => {
+    for(let pet of pets){
+        if (pet.nome === animal){ 
+            pet.servicos.push({
+                'serviço':'tosa',
+                'data': moment().format('DD-MM-YYYY')
+            });
+            console.log(`${pet.nome} está com cabelinha na régua!`);
+              
+       
+        }
+    }   
+}
+
+const apararUnhasPet= (animal) => {
+    for(let pet of pets){
+        if (pet.nome === animal){
+        pet.servicos.push('corte de unhas')
+        pet.servicos.push({
+            'serviço':'corte de unhas',
+            'data': moment().format('DD-MM-YYYY')
+        });
+        console.log(`${pet.nome} está de unhas cortadas!`);
+        
+        }
+
+    }
+    
+}
+
+darBanhoPet("Adelaide");
+tosaPet("Aristides");
+apararUnhasPet('Abel');
+
+for (let pet of pets) {
+    console.log(pet.servicos);
+}
+//listarPets()
+//addCliente('Luke', 'cachorro', 3, 'Husk', 35, "victor", '(81) 9 5748-4059', true, [] );
 //campanhaVacina();
 //vacinarPets("Aristides");
 //listarPets();

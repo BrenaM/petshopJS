@@ -75,7 +75,24 @@ const campanhaVacina = () =>{
     }
     console.log(`${petVacinados} pets vacinados nesta campanha!`)
 }
-campanhaVacina();
+
+const addCliente = () => {
+    let novoCliente = [
+        {
+            nome: ' ',
+            tipo: '',
+            idade: 0,
+            raca: "",
+            peso: 0,
+            tutor: '',
+            contato: ' ',
+            vacinado: true,
+            servicos: [' ']
+        }
+    ]
+}
+
+//campanhaVacina();
 //vacinarPets("Aristides");
 //listarPets();
 

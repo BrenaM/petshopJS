@@ -20,7 +20,7 @@ let pets = [
         peso: 5,
         tutor: 'Suzana',
         contato: '(81) 98529-5890',
-        vacinado: true,
+        vacinado: false,
         servicos: ['banho', 'tosa']
     },
     {
@@ -45,6 +45,22 @@ const listarPets = () => {
     }
 }
 
-listarPets();
+const vacinarPet = (animal) => {
+
+    for(let pet of pets){
+        if (animal === pet.nome) {
+            if (pet.vacinado == false) {
+                pet.vacinado = true;
+                console.log(`O pet chamado ${animal} foi vacinado!`)
+                break;
+            }else {
+                console.log(`O Pet ${animal} já foi vacinado!`)
+            }
+        }
+    }
+}
+
+vacinarPet("Aristides");
+//listarPets();
 
 

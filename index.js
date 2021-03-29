@@ -108,8 +108,9 @@ const atenderCliente = (pet, servico) => {
 atenderCliente(bancoDados.pets[0], darBanhoPet);
 console.log('--------------------------');
 
-//listarPets();
-//console.log('--------------------------');
+listarPets();
+console.log('--------------------------');
+
 adicionarPet({
     "nome": "Alfredo", 
     "tipo": "cachorro", 

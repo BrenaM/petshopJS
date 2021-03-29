@@ -100,15 +100,16 @@ const apararUnhasPet= (animal) => {
 
 const atenderCliente = (pet, servico) => {
     console.log(`Olá, ${pet.nome}!`);
-    servico ? servico(pet) : console.log ('Só vim dar uma olhadinha!');
+    (servico) ? servico(pet) : console.log ('Só vim dar uma olhadinha!');
     console.log('Tchau, até mais!');
 }
 
 
-//atenderCliente(pets[1], darBanhoPet);
+atenderCliente(bancoDados.pets[0], darBanhoPet);
+console.log('--------------------------');
 
-listarPets();
-
+//listarPets();
+//console.log('--------------------------');
 adicionarPet({
     "nome": "Alfredo", 
     "tipo": "cachorro", 
@@ -117,6 +118,6 @@ adicionarPet({
     "peso": 25, 
     "tutor": "Brena", 
     "contato": "(81) 98529-5890", 
-    "vacinado": true, 
+    "vacinado": false, 
     "servicos": []    
 });

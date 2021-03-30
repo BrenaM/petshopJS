@@ -14,12 +14,23 @@ const atualizarBanco = () => {
 
 const listarPets = () => {
     bancoDados.pets.forEach((pet) => {
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}, ${pet.vacinado ? 'Pet Vacinado' : 'Pet não vacinado'}`);
-        
-        pet.servicos.forEach((servico) => {
-            console.log(`${servico.data} - ${servico.nome}`);
-        })
+        let {nome, idade, tipo, raca, vacinado, servicos} = pet;
+
+        console.log( `
+        --- Dados Pet --- 
+        Nome: ${nome}
+        Idade: ${idade}
+        Tipo: ${tipo}
+        Raça: ${raca}
+        Vacinado: ${vacinado ? 'Pet Vacinado' : 'Pet não vacinado'}`
+    )
+    servicos.forEach((servico) => {
+        console.log(`
+        Serviços: ${servico.data} - ${servico.nome}`);
     })
+    })
+}    
+
     // for (let i = 0; i < pets.length; i++) {}     
     // for (let pet of bancoDados.pets){ 
     //     console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}, ${pet.vacinado ? 'Pet Vacinado' : 'Pet não vacinado'}`);
@@ -27,10 +38,10 @@ const listarPets = () => {
     //         console.log(`${servico.data} - ${servico.nome}`)
     //     }
     // }
-}
+
 
 const vacinarPets = pet => {
-    //pet.vacinado = pet.vacinado ? console.log('Vacinado!'): (console.log('Não vacinado'));
+    
     for (let pet of bancoDados.pets){ 
         if (!pet.vacinado){
             pet.vacinado = true;
@@ -140,18 +151,42 @@ const filtrarTipoPet = (tipoPet) => {
     return petsEncontrados;
 }
 
-// const clientePremium = (pet) => {
-//     let nServicos = pet.servicos.reduce((total, pet) => {
-//         return total + 1;
-//     })
+const clientePermium = (pet) => {
+    //let nome = pet.nome;
+    let {nome} = pet;
 
-//     if (nServicos > 5) {
-        
-//     }
-// }
+    let nServicos = pet.servicos.length;
 
-//console.log(buscarPet('Abel'));
-//campanhaVacina();
+    if (nServicos > 5) {
+        console.log(`Olá, ${nome}! Você é um cliente especial e ganhou um descontão!`);
+    }else {
+            console.log(`Olá, ${nome}! Você ainda não tem descontos disponíveis!`);
+    }
+}
+
+const contatoTutor = pet => {
+    let {nome, tutor, contato} = pet;
+
+    return `Tutor: ${tutor}
+            Contato: ${contato}
+            Pet: ${nome}`;
+}
+
+const filtrarTutor = (nomeTutor) => {
+    let petsTutor = bancoDados.pets.filter((pet) => {
+        return pet.tutor == nomeTutor;
+    })
+
+    console.log(`Pets do tutor ${nomeTutor}:`)
+    petsTutor.forEach((pet) => {
+        console.log(`${pet.nome} - ${pet.tipo}`)
+    })
+}
+
+// console.log(contatoTutor(bancoDados.pets[0]));
+
+// console.log(buscarPet('Abel'));
+// campanhaVacina();
 
 // atenderCliente(bancoDados.pets[2], darBanhoPet);
 // console.log('--------------------------');
@@ -169,4 +204,4 @@ listarPets()
 //     "contato": "(81) 98529-5890", 
 //     "vacinado": false, 
 //     "servicos": []    
-// });
+// })

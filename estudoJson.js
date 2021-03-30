@@ -26,6 +26,7 @@ console.log('---------------------');
 atenderCliente(pets[1]);
 
 //let arquivoJson = require("./package.json")
+
 //console.log(arquivoJson)
 //aqui chamandos um arquivo Json externo e imprimimos como objeto
 //console.log(JSON.stringify(arquivoJson));
@@ -33,8 +34,6 @@ atenderCliente(pets[1]);
 
 
 //let dadospet = require('./dadospets.json')
-
-
 
 
 // let petObj = {
@@ -63,3 +62,19 @@ atenderCliente(pets[1]);
 //se usar a crase pode quebrar a linha e o codigo roda normal
 //se usar aspas simples não
 //console.log(JSON.parse(pets))
+
+
+
+//Desestruturação
+let pessoa = {
+    nome: 'Iago',
+    idade: 25,
+    profissão: 'dev',
+    contato: '90 98098-9909',
+    habilidades: ['node.js', 'musql', 'javascript', 'html']
+}
+
+let {nome, contato} = pessoa;
+
+//console.log(`${pessoa.nome} - ${pessoa.contato}`);
+//console.log(`${nome} - ${contato}`)

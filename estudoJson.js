@@ -63,18 +63,32 @@ atenderCliente(pets[1]);
 //se usar aspas simples não
 //console.log(JSON.parse(pets))
 
-
-
 //Desestruturação
-let pessoa = {
-    nome: 'Iago',
-    idade: 25,
-    profissão: 'dev',
-    contato: '90 98098-9909',
-    habilidades: ['node.js', 'musql', 'javascript', 'html']
-}
+// let pessoa = {
+//     nome: 'Iago',
+//     idade: 25,
+//     profissão: 'dev',
+//     contato: '90 98098-9909',
+//     habilidades: ['node.js', 'musql', 'javascript', 'html']
+// }
 
-let {nome, contato} = pessoa;
+// let {nome, contato} = pessoa;
 
 //console.log(`${pessoa.nome} - ${pessoa.contato}`);
 //console.log(`${nome} - ${contato}`)
+
+let turma1 = ['anna', 'João', "Vinicius", 'igor'];
+let turma2 = ['Janaian', 'Gustavo', 'Adriana', 'isaac'];
+
+//let turmasAvanade = [turma1, turma2] junta as lista como se fossem listas separadas
+
+//o spread operation add elementos de mais de uma lista na mesma lista
+// let turmasAvanade = [...turma1, ...turma2];
+// console.log(turmasAvanade);
+
+//pega oa elementod da turma2 e coloca na turma1
+turma1.push(...turma2);
+console.log(turma1)
+
+
+
